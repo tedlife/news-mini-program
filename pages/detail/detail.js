@@ -1,4 +1,4 @@
-var WxParse = require('../../libs/wxParse/wxParse.js');
+const WxParse = require('../../libs/wxParse/wxParse.js');
 
 Page({
   data: {
