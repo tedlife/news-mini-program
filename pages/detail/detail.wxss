@@ -1,0 +1,43 @@
+.news-detail {
+  padding: 30rpx;
+}
+
+.news-header {
+  margin-bottom: 30rpx;
+}
+
+.news-title {
+  font-size: 36rpx;
+  margin-bottom: 20rpx;
+  color: #333;
+}
+
+.news-meta {
+  display: flex;
+  font-size: 26rpx;
+  color: #999;
+}
+
+.news-count {
+  flex-grow: 1;
+  text-align: right;
+}
+
+.news-source {
+  padding-right: 20rpx;
+}
+
+/* content */
+.wxParse-inline {
+  margin-bottom: 30rpx;
+  font-size: 30rpx;
+  color: #666;
+}
+
+.wxParse-strong {
+  font-weight: bold;
+}
+
+.wxParse-img {
+  max-width: 100%;
+}

@@ -1,0 +1,21 @@
+<view class="container">
+  <scroll-view class="cat-scroll-view" scroll-x>
+    <view class="cat-list">
+      <view class="cat-item {{type === item ? 'current-cat-item' : ''}}" wx:for="{{categories}}" wx:key="{{item}}" bindtap="onTapCategory" data-cat="{{item}}">{{catNameMap[item]}}</view>
+    </view>
+  </scroll-view>
+
+  <view class="news-list">
+    <view class="news-item" wx:for="{{newsList}}" wx:key="{{item.id}}" bindtap="onTapNews" data-id="{{item.id}}">
+      <view class="news-info">
+        <view class="news-title">{{item.title}}</view>
+        <view class="news-source">{{item.source}}</view>
+        <view class="news-date">{{item.date}}</view>
+      </view>
+      <view class="news-image-wrapper">
+        <image class='news-image' src="{{item.firstImage}}" mode="widthFix"></image>
+      </view>
+    </view>
+  </view>
+
+</view>
