@@ -8,8 +8,9 @@ Page({
   onLoad(options) {
     this.setData({
       newId: options.newId
+    }, () => {
+      this.getNewsDetail();
     })
-    this.getNewsDetail();
   },
   getNewsDetail() {
     wx.request({
@@ -19,7 +20,6 @@ Page({
       },
       success: res => {
         const result = res.data.result;
-
         if (result) {
           const contentHtml = result.content.map(element => {
             switch (element.type) {
