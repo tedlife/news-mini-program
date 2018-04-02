@@ -2,12 +2,12 @@ const WxParse = require('../../libs/wxParse/wxParse.js');
 
 Page({
   data: {
-    newId: 0,
+    newsId: 0,
     detail: {}
   },
   onLoad(options) {
     this.setData({
-      newId: options.newId
+      newsId: options.newsId
     }, () => {
       this.getNewsDetail();
     })
@@ -16,7 +16,7 @@ Page({
     wx.request({
       url: 'https://test-miniprogram.com/api/news/detail',
       data: {
-        id: this.data.newId
+        id: this.data.newsId
       },
       success: res => {
         const result = res.data.result;

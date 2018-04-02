@@ -56,7 +56,7 @@ Page({
   onTapNews(e) {
     const { id } = e.currentTarget.dataset;
     wx.navigateTo({
-      url: `/pages/detail/detail?newId=${id}`
+      url: `/pages/detail/detail?newsId=${id}`
     })
   }
 })
