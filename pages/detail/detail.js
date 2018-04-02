@@ -40,16 +40,19 @@ Page({
             }
           })
         } else {
+          const { code, message } = res.data;
           this.setData({
             detail: {
-              title: "获取数据出错！！"
+              title: `${code}：${message}`
             }
           })
         }
-        
       },
       fail: err => {
-        console.log(err);
+        console.log("err: ", err);
+      },
+      complete: res => {
+        console.log("res: ", res);
       }
     })
   }
