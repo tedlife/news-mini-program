@@ -12,7 +12,7 @@
     <view class="news-item" wx:for="{{newsList}}" wx:key="{{item.id}}" bindtap="onTapNews" data-id="{{item.id}}">
       <view class="news-info">
         <view class="news-title">{{item.title}}</view>
-        <view class="news-source">{{item.source ? item.source : '未知来源'}}</view>
+        <view class="news-source">{{item.source}}</view>
         <view class="news-date">{{item.date}}</view>
       </view>
       <view class="news-image-wrapper">

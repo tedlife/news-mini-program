@@ -34,7 +34,8 @@ Page({
         const result = res.data.result;
         const newResult = result.map(item => ({
           ...item,
-          date: item.date.substr(0, 10)
+          date: item.date.substr(0, 10),
+          source: item.source ? item.source : '未知来源'
         }))
 
         this.setData({
@@ -51,6 +52,7 @@ Page({
     const { cat } = e.currentTarget.dataset;
     this.setData({
       type: cat,
+      newsList: [],
       showLoading: true
     }, () => {
       this.getNewsList();

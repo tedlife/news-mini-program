@@ -6,7 +6,7 @@
   <view class="news-header">
     <view class="news-title">{{detail.title}}</view>
     <view class="news-meta">
-      <view class="news-source">{{item.source ? item.source : '未知来源'}}</view>
+      <view class="news-source">{{detail.source}}</view>
       <view class="news-date">{{detail.date}}</view>
       <view class="news-count">{{detail.readCount}}</view>
     </view>
