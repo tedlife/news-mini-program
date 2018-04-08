@@ -1,7 +1,3 @@
-<view >
-  <loading wx:if="{{showLoading}}">加载中</loading>
-</view>
-
 <view class="news-detail">
   <view class="news-header">
     <view class="news-title">{{detail.title}}</view>

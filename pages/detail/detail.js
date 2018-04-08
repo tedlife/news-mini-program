@@ -3,8 +3,7 @@ const WxParse = require('../../libs/wxParse/wxParse.js');
 Page({
   data: {
     newsId: 0,
-    detail: {},
-    showLoading: true
+    detail: {}
   },
   onLoad(options) {
     this.setData({
@@ -14,6 +13,10 @@ Page({
     })
   },
   getNewsDetail() {
+    wx.showLoading({
+      title: '加载中'
+    })
+
     wx.request({
       url: 'https://test-miniprogram.com/api/news/detail',
       data: {
@@ -21,6 +24,7 @@ Page({
       },
       success: res => {
         const result = res.data.result;
+
         if (result) {
           const contentHtml = result.content.map(element => {
             switch (element.type) {
@@ -39,17 +43,14 @@ Page({
               date: result.date.substr(0, 10),
               readCount: `阅读 ${result.readCount}`,
               source: result.source ? result.source : '未知来源'
-            },
-            showLoading: false
+            }
           })
         } else {
           const { code, message } = res.data;
           this.setData({
             detail: {
               title: `${code}：${message}`
-            },
-            showLoading: false
-
+            }
           })
         }
       },
@@ -57,6 +58,7 @@ Page({
         console.log("err: ", err);
       },
       complete: res => {
+        wx.hideLoading();
         console.log("res: ", res);
       }
     })

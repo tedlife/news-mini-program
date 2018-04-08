@@ -13,8 +13,7 @@ Page({
     type: "gn",
     catNameMap,
     categories: ["gn", "gj", "cj", "yl", "js", "ty", "other"],
-    newsList: [],
-    showLoading: true
+    newsList: []
   },
   onLoad() {
     this.getNewsList();
@@ -25,6 +24,10 @@ Page({
     });
   },
   getNewsList(callback) {
+    wx.showLoading({
+      title: '加载中'
+    })
+    
     wx.request({
       url: 'https://test-miniprogram.com/api/news/list',
       data: {
@@ -39,11 +42,11 @@ Page({
         }))
 
         this.setData({
-          newsList: newResult,
-          showLoading: false
+          newsList: newResult
         })
       },
       complete: () => {
+        wx.hideLoading();
         callback && callback();
       }
     })
@@ -52,8 +55,7 @@ Page({
     const { cat } = e.currentTarget.dataset;
     this.setData({
       type: cat,
-      newsList: [],
-      showLoading: true
+      newsList: []
     }, () => {
       this.getNewsList();
     })
