@@ -3,7 +3,8 @@ const WxParse = require('../../libs/wxParse/wxParse.js');
 Page({
   data: {
     newsId: 0,
-    detail: {}
+    detail: {},
+    showLoading: true
   },
   onLoad(options) {
     this.setData({
@@ -37,14 +38,17 @@ Page({
               ...result,
               date: result.date.substr(0, 10),
               readCount: `阅读 ${result.readCount}`
-            }
+            },
+            showLoading: false
           })
         } else {
           const { code, message } = res.data;
           this.setData({
             detail: {
               title: `${code}：${message}`
-            }
+            },
+            showLoading: false
+
           })
         }
       },

@@ -13,7 +13,8 @@ Page({
     type: "gn",
     catNameMap,
     categories: ["gn", "gj", "cj", "yl", "js", "ty", "other"],
-    newsList: []
+    newsList: [],
+    showLoading: true
   },
   onLoad() {
     this.getNewsList();
@@ -37,7 +38,8 @@ Page({
         }))
 
         this.setData({
-          newsList: newResult
+          newsList: newResult,
+          showLoading: false
         })
       },
       complete: () => {
@@ -48,7 +50,8 @@ Page({
   onTapCategory(e) {
     const { cat } = e.currentTarget.dataset;
     this.setData({
-      type: cat
+      type: cat,
+      showLoading: true
     }, () => {
       this.getNewsList();
     })
