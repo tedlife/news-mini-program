@@ -35,30 +35,28 @@ Page({
       },
       success: res => {
         const result = res.data.result;
-        const newResult = result.map(item => ({
-          ...item,
-          date: item.date.substr(0, 10),
-          source: item.source ? item.source : '未知来源'
-        }))
 
         this.setData({
-          newsList: newResult
+          newsList: result
         })
       },
       complete: () => {
         wx.hideLoading();
-        callback && callback();
+        typeof callback === "function" && callback();
       }
     })
   },
   onTapCategory(e) {
     const { cat } = e.currentTarget.dataset;
-    this.setData({
-      type: cat,
-      newsList: []
-    }, () => {
-      this.getNewsList();
-    })
+
+    if (cat !== this.data.type) {
+      this.setData({
+        type: cat,
+        newsList: []
+      }, () => {
+        this.getNewsList();
+      })
+    }
   },
   onTapNews(e) {
     const { id } = e.currentTarget.dataset;

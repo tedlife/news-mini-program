@@ -40,9 +40,7 @@ Page({
           this.setData({
             detail: {
               ...result,
-              date: result.date.substr(0, 10),
-              readCount: `阅读 ${result.readCount}`,
-              source: result.source ? result.source : '未知来源'
+              readCount: `阅读 ${result.readCount}`
             }
           })
         } else {
