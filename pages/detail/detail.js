@@ -3,7 +3,7 @@ const WxParse = require('../../libs/wxParse/wxParse.js');
 Page({
   data: {
     newsId: 0,
-    detail: {}
+    detail: null
   },
   onLoad(options) {
     this.setData({
@@ -38,10 +38,7 @@ Page({
           WxParse.wxParse('article', 'html', contentHtml, this, 5);
 
           this.setData({
-            detail: {
-              ...result,
-              readCount: `阅读 ${result.readCount}`
-            }
+            detail: result
           })
         } else {
           const { code, message } = res.data;
