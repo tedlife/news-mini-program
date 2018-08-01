@@ -1,4 +1,4 @@
-<wxs src="../wxs/formate.wxs" module="formate"></wxs>
+<wxs src="../../wxs/formate.wxs" module="formate"></wxs>
 <view class="news-detail">
   <view class="news-header">
     <view class="news-title">{{detail.title}}</view>

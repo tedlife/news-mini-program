@@ -1,4 +1,4 @@
-<wxs src="../wxs/formate.wxs" module="formate"></wxs>
+<wxs src="../../wxs/formate.wxs" module="formate"></wxs>
 
 <view class="container">
   <scroll-view class="cat-scroll-view" scroll-x>
